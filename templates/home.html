@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Shin Blog {% endblock %}
+
+{% block extra-style %}
+<style>
+	.cts-image {
+		width: 100%;
+		height: 230px;
+		object-fit: cover;
+	}
+
+	.cts-title {
+		height: 60px;
+		font-size: 1.3rem !important;
+		font-weight: 600 !important;
+	}
+
+	.cts-postcard,
+	.cts-about {
+		background-color: #fff !important;
+		border: 1px solid #e1eaea !important;
+		box-shadow: 0 .3rem 0.7rem rgba(43, 42, 53, .075) !important;
+
+	}
+
+	header.masthead {
+		background-attachment: fixed;
+	}
+</style>
+{% endblock %}
+
+{% block contentElement %}
+<!-- Masthead-->
+<header class="masthead" id="home">
+	<div class="container">
+		<div class="masthead-subheading">Welcome To shin-blog</div>
+		<div style="margin-bottom: 50px;">일상 생활관련 사항을 기록하고 있습니다.</div>
+	</div>
+</header>
+
+<!-- post Grid-->
+<section class="page-section bg-light" id="blog-post">
+	<div class="container">
+		<div class="text-center">
+			<h2 class="section-heading text-uppercase">Post List</h2>
+			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+		</div>
+		<div class="row">
+			<div v-for="post in postList" :key="post.id" class="col-lg-4 col-sm-6 mb-4">
+				<!-- Portfolio item 1-->
+				<div class="blog-post-item cts-postcard">
+					<a class="blog-post-link" :href="`/post/${post.id}`">
+						<div class="blog-post-hover">
+							<div class="blog-post-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+						</div>
+						<img class="img-fluid cts-image" :src="post.image" alt="..." />
+					</a>
+					<div class="blog-post-caption">
+						<div class="blog-post-caption-subheading text-muted ">[[post.category]]</div>
+						<div class="blog-post-caption-heading cts-title">[[post.title]]</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div aria-label="...">
+			<ul class="pagination justify-content-center">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1"><i class="fa-solid fa-arrow-left"></i></a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item active">
+					<a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#"><i class="fa-solid fa-arrow-right"></i></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+</section>
+
+<!-- about -->
+<section class="page-section bg-light" id="iam">
+	<div class="container ">
+		<!-- <div class="text-center">
+				<h2 class="section-heading text-uppercase"> Shin Hyeok</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div> -->
+		<div class="row p-2 pt-4 pb-4 cts-about">
+			<div class="col-lg-4">
+				<div class="iam-member">
+					<img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpg' %}" alt="..." />
+					<h4>Shin Hyeok Kim</h4>
+					<div class="active-field"><span> Frontend</span>|<span> Backend</span>|<span> Data science</span></div>
+					<a class="btn btn-dark btn-social mx-2" href="https://github.com/DevelopShin" aria-label="Parveen Anand Twitter Profile"><i
+							class="fab fa-github"></i></a>
+				</div>
+			</div>
+
+			<div class="col-lg-8">
+				<div class="mb-5">
+					<h4>경희대학교 졸업</h4>
+					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
+				</div>
+				<div class="mb-5">
+					<h4>경희대학교 졸업</h4>
+					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
+				</div>
+				<div class="mb-5">
+					<h4>경희대학교 졸업</h4>
+					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
+				</div>
+				<div class="mb-5">
+					<h4>경희대학교 졸업</h4>
+					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
+				</div>
+
+			</div>
+</section>
+{% endblock %}
+
+{% block extra-script %}
+<script src="{% static 'vue/home.js' %}"></script>
+{% endblock %}
