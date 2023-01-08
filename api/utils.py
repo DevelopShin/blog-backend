@@ -3,7 +3,6 @@ def obj_to_post(obj, card=False):
         card=True 이면 obj에 카드에 필요한 데이터만 담아보낸다
     """
     post = dict(vars(obj))
-    print("::=>", post)
     if obj.category:
         post['category'] = obj.category.name
     else:

@@ -17,15 +17,20 @@
       <hr/>
       <p class="text-muted">
         <i class="fa-sharp fa-solid fa-calendar"></i>
-        <span>[[post.post?.created_at]] &emsp;</span>
-        <i class="fas fa-copyright"></i>
-        <span class="text-primary">[[post.post?.category]] &emsp;</span>
-        <i class="fas fa-tag"></i>
-
-        <span v-for="(tag, i) in post.post?.tags" :key="i" class="me-1 text-info">[[tag]]
+        <span class='mr-1 text-uppercase'>[[post.post?.created_at]] &emsp;</span>
+        <i class="fas fa-copyright ms-2"></i>
+        <span class="text-primary my-link me-1 text-uppercase" @click="keywordSearch(post.post?.category,'')">
+          [[post.post?.category]]
         </span>
-        <i class="fas fa-heart"></i>
-        <span>10 &emsp;</span>
+        &emsp;
+        <i class="fas fa-tag ms-2"></i>
+        <span v-for="(tag, i) in post.post?.tags" :key="i" class="me-1 text-info my-link" @click="keywordSearch('', tag)">
+          [[tag]]
+        </span>
+
+        <i class="fas fa-heart ms-2"></i>
+        <span>10
+        </span>
       </p>
       <hr/>
     </div>
@@ -79,7 +84,7 @@
           <div class="card-header">Categories</div>
           <div class="card-body">
             <div class="list-unstyled gap-4 d-flex flex-wrap ">
-              <span v-for="(cate, i) in cateList" :key="i" class="text-success my-link">
+              <span v-for="(cate, i) in cateList" :key="cate.id" class="text-primary my-link text-uppercase" @click="keywordSearch(cate,'')">
                 [[cate]]
               </span>
             </div>
@@ -91,7 +96,7 @@
           <div class="card-header">Tag Cloud</div>
           <div class="card-body">
             <div class="list-unstyled gap-4 d-flex flex-wrap ">
-              <span v-for="(tag, i) in tagList" :key="i" class="text-success my-link">
+              <span v-for="(tag, i) in tagList" :key="tag.id" class="text-info my-link text-uppercase" @click="keywordSearch('',tag)">
                 [[tag]]
               </span>
             </div>

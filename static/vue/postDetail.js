@@ -14,6 +14,7 @@ var postDetail = new Vue({
   methods: {
     fetchPostDetail(postId) {
       console.log("fetchPostDetail: ", postId);
+
       axios
         .get(`/api/post/${postId}/`)
         .then((res) => {
@@ -25,6 +26,7 @@ var postDetail = new Vue({
           console.log("fetchPostDetail error : ", err.response);
         });
     },
+
     fetchCateTagList() {
       axios
         .get(`/api/post/catetag/`)
@@ -36,6 +38,12 @@ var postDetail = new Vue({
         .catch((err) => {
           console.log("fetchCateTagList error : ", err.response);
         });
+    },
+
+    keywordSearch(cate = "", tag = "") {
+      if (cate) location.href = `/?category=${cate}#blog-post`;
+      else if (tag) location.href = `/?tag=${tag}#blog-post`;
+      else return;
     },
   },
 });

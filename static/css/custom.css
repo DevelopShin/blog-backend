@@ -16,12 +16,12 @@
 }
 .my-link {
   cursor: pointer !important;
-  text-decoration: underline !important;
-  text-decoration-color: currentColor !important;
-  text-underline-offset: 2px;
 }
 .my-link:hover {
   opacity: 0.8;
+  text-decoration: underline !important;
+  text-decoration-color: currentColor !important;
+  text-underline-offset: 2px;
 }
 .my-link:active {
   opacity: 0.8;

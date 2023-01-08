@@ -1,57 +1,68 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Shin Blog {% endblock %}
+{% block title %}
+  Shin Blog
+{% endblock %}
 
 {% block contentElement %}
-<!-- Masthead-->
-<header class="masthead" id="home">
-	<div class="container">
-		<div class="masthead-subheading">Welcome To shin-blog</div>
-		<div style="margin-bottom: 50px;">일상 생활관련 사항을 기록하고 있습니다.</div>
-	</div>
-</header>
+  <!-- Masthead-->
+  <header class="masthead" id="home">
+    <div class="container">
+      <div class="masthead-subheading">Welcome To shin-blog</div>
+      <div style="margin-bottom: 50px;">일상 생활관련 사항을 기록하고 있습니다.</div>
+    </div>
+  </header>
 
-<!-- post Grid -->
-{% include "home/post_list_view.html" %}
+  <!-- post Grid -->
+  {% include "home/post_list_view.html" %}
 
+  <!-- about -->
+  <section class="page-section bg-light" id="iam">
+    <div class="container ">
+      <div class="row p-2 pt-4 pb-4 cts-about">
+        <div class="col-lg-4">
+          <div class="iam-member">
+            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpg' %}" alt="..."/>
+            <h4>Shin Hyeok Kim</h4>
+            <div class="active-field">
+              <span>
+                Frontend</span>|<span>
+                Backend</span>|<span>
+                Data science</span></div>
+            <a class="btn btn-dark btn-social mx-2" href="https://github.com/DevelopShin" aria-label="Parveen Anand Twitter Profile">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
 
-<!-- about -->
-<section class="page-section bg-light" id="iam">
-	<div class="container ">
-		<div class="row p-2 pt-4 pb-4 cts-about">
-			<div class="col-lg-4">
-				<div class="iam-member">
-					<img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpg' %}" alt="..." />
-					<h4>Shin Hyeok Kim</h4>
-					<div class="active-field"><span> Frontend</span>|<span> Backend</span>|<span> Data science</span></div>
-					<a class="btn btn-dark btn-social mx-2" href="https://github.com/DevelopShin" aria-label="Parveen Anand Twitter Profile"><i
-							class="fab fa-github"></i></a>
-				</div>
-			</div>
+        <div class="col-lg-8">
+          <div class="mb-5">
+            <h4>경희대학교 졸업</h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis
+            </p>
+          </div>
+          <div class="mb-5">
+            <h4>경희대학교 졸업</h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis
+            </p>
+          </div>
+          <div class="mb-5">
+            <h4>경희대학교 졸업</h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis
+            </p>
+          </div>
+          <div class="mb-5">
+            <h4>경희대학교 졸업</h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis
+            </p>
+          </div>
 
-			<div class="col-lg-8">
-				<div class="mb-5">
-					<h4>경희대학교 졸업</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
-				</div>
-				<div class="mb-5">
-					<h4>경희대학교 졸업</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
-				</div>
-				<div class="mb-5">
-					<h4>경희대학교 졸업</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
-				</div>
-				<div class="mb-5">
-					<h4>경희대학교 졸업</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis </p>
-				</div>
+        </div>
+      </section>
+    {% endblock %}
 
-			</div>
-</section>
-{% endblock %}
+    {% block extra-script %}
+      <script src="{% static 'vue/home.js' %}"></script>
 
-{% block extra-script %}
-<script src="{% static 'vue/home.js' %}"></script>
-{% endblock %}
+    {% endblock %}

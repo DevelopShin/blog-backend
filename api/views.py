@@ -11,7 +11,18 @@ from post.models import Post, Category, Tag
 
 
 class ApiPostLV(BaseListView):
-    model = Post
+
+    def get_queryset(self):
+        category = self.request.GET.get('category')
+        tag = self.request.GET.get('tag')
+        print('keyword: ', category, tag)
+        if category:
+            qs = Post.objects.filter(category__name__iexact=category)
+        elif tag:
+            qs = Post.objects.filter(tags__name__iexact=tag)
+        else:
+            qs = Post.objects.all()
+        return qs
 
     def render_to_response(self, context, **response_kwargs):
         qs = context['object_list']
