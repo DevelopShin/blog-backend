@@ -1,9 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views import View
 from django.views.generic.list import BaseListView
 from django.views.generic.detail import BaseDetailView
 from api.utils import obj_to_post, prev_next_post
-from post.models import Post
+from post.models import Post, Category, Tag
 
 
 # Create your views here.
@@ -31,3 +32,16 @@ class ApiPostDV(BaseDetailView):
             'nextPost': nextPost
         }
         return JsonResponse(data=data, safe=False, status=200)
+
+
+class ApiCateTagView(View):
+
+    def get(self, request, *args, **kwargs):
+        c = [v.name for v in Category.objects.all()]
+        t = [v.name for v in Tag.objects.all()]
+
+        json = {
+            'cateList': c,
+            'tagList': t,
+        }
+        return JsonResponse(data=json, safe=True, status=200)
