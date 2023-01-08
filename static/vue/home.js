@@ -12,6 +12,7 @@ var home = new Vue({
       axios
         .get("/api/post/list/")
         .then((res) => {
+          console.log(res.data);
           this.postList = res.data;
         })
         .catch((err) => {

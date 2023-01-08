@@ -40,58 +40,12 @@
 	</div>
 </header>
 
-<!-- post Grid-->
-<section class="page-section bg-light" id="blog-post">
-	<div class="container">
-		<div class="text-center">
-			<h2 class="section-heading text-uppercase">Post List</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-		</div>
-		<div class="row">
-			<div v-for="post in postList" :key="post.id" class="col-lg-4 col-sm-6 mb-4">
-				<!-- Portfolio item 1-->
-				<div class="blog-post-item cts-postcard">
-					<a class="blog-post-link" :href="`/post/${post.id}`">
-						<div class="blog-post-hover">
-							<div class="blog-post-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-						</div>
-						<img class="img-fluid cts-image" :src="post.image" alt="..." />
-					</a>
-					<div class="blog-post-caption">
-						<div class="blog-post-caption-subheading text-muted ">[[post.category]]</div>
-						<div class="blog-post-caption-heading cts-title">[[post.title]]</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		<div aria-label="...">
-			<ul class="pagination justify-content-center">
-				<li class="page-item disabled">
-					<a class="page-link" href="#" tabindex="-1"><i class="fa-solid fa-arrow-left"></i></a>
-				</li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item active">
-					<a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item">
-					<a class="page-link" href="#"><i class="fa-solid fa-arrow-right"></i></a>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-
-</section>
+<!-- post Grid -->
+{% include "home/post_list_view.html" %}
 
 <!-- about -->
 <section class="page-section bg-light" id="iam">
 	<div class="container ">
-		<!-- <div class="text-center">
-				<h2 class="section-heading text-uppercase"> Shin Hyeok</h2>
-				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-			</div> -->
 		<div class="row p-2 pt-4 pb-4 cts-about">
 			<div class="col-lg-4">
 				<div class="iam-member">

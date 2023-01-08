@@ -4,6 +4,19 @@
 
 {% block title %} post detail {% endblock %}
 
+{% block extra-style %}
+<style>
+	.cst-img-300 {
+		height: 300px;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	.cst-content {
+		white-space: pre-line;
+	}
+</style>
+{% endblock%}
 {% block contentElement %}
 <br />
 <br />
@@ -11,16 +24,16 @@
 <div class="container mt-5 " id="detail-sec">
 	<div class="row">
 		<!-- Post title-->
-		<h1 class="fw-bolder mb-1">[[post.title]]</h1>
+		<h1 class="fw-bolder mb-1">[[post.post?.title]]</h1>
 		<hr />
 		<p class="text-muted">
 			<i class="fa-sharp fa-solid fa-calendar"></i>
-			<span>[[post.create_at]] &emsp;</span>
+			<span>[[post.post?.created_at]] &emsp;</span>
 			<i class="fas fa-copyright"> </i>
-			<span class="text-primary">[[post.category]] &emsp;</span>
+			<span class="text-primary">[[post.post?.category]] &emsp;</span>
 			<i class="fas fa-tag"> </i>
 
-			<span v-for="(tag, i) in post.tags" :key="i" class="me-1 text-info">[[tag]] </span>
+			<span v-for="(tag, i) in post.post?.tags" :key="i" class="me-1 text-info">[[tag]] </span>
 			<i class="fas fa-heart"> </i>
 
 			<span>10 &emsp;</span>
@@ -31,14 +44,11 @@
 		<div class="col-lg-8">
 			<!-- Post content-->
 			<article>
-				<!-- Post header-->
-
-				<!-- Preview image figure-->
-				<figure class="mb-4"><img class="img-fluid rounded" :src="post.image" alt="..." /></figure>
+				<figure class="mb-4"><img class="img-fluid rounded cst-img-300" :src="post.post?.image" alt="..." /></figure>
 				<!-- Post content-->
 				<section class="mb-5">
-					<p class="fs-5 mb-4">
-						[[post.content]]
+					<p class="fs-5 mb-4 cst-content">
+						[[post.post?.content]]
 					</p>
 				</section>
 			</article>
@@ -125,12 +135,16 @@
 			</div>
 			<!-- Side widget-->
 			<div class="card mb-4">
-				<div class="card-header">Prev Post</div>
+				<div class="card-header">다음 포스트</div>
+				<h5 class="m-0 p-2" style="height: 36px; overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;">
+					This is </h5>
 				<div class="card-body">You can put anything you want inside of these side widgets. They are
 					easy to use, and feature the Bootstrap 5 card component!</div>
 			</div>
 			<div class="card mb-4">
-				<div class="card-header">Next Post</div>
+				<div class="card-header">이전 포스트</div>
 				<div class="card-body">You can put anything you want inside of these side widgets. They are
 					easy to use, and feature the Bootstrap 5 card component!</div>
 			</div>

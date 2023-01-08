@@ -11,8 +11,8 @@ class Post(models.Model):
     content = models.TextField('CONTENT')
     image = models.ImageField(
         'IMAGE', upload_to='post/%Y/%m/', blank=True, null=True)
-    create_at = models.DateTimeField('CREATE DT', auto_now_add=True)
-    update_at = models.DateTimeField('UPDATE DT', auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     like = models.PositiveSmallIntegerField('LIKE', default=0)
 
     def __str__(self):
@@ -41,8 +41,8 @@ class Comment(models.Model):
     content = models.TextField('CONTENT')
     image = models.ImageField(
         'IMAGE', upload_to='post/%Y-%m/', blank=True, null=True)
-    create_at = models.DateTimeField('CREATE DT', auto_now_add=True)
-    update_at = models.DateTimeField('UPDATE DT', auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     @property
     def short_content(self):

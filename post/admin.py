@@ -5,7 +5,8 @@ from post.models import Post, Category, Tag, Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'category', 'tag_list', 'title', 'description', 'image', 'create_at', 'update_at', 'like')
+    list_display = ('id', 'category', 'tag_list', 'title',
+                    'description', 'image', 'created_at', 'updated_at', 'like')
 
     def tag_list(self, obj):
         return ','.join([t.name for t in obj.tags.all()])
@@ -26,4 +27,4 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'post', 'short_content', 'create_at', 'update_at')
+    list_display = ('id', 'post', 'short_content', 'created_at', 'updated_at')
