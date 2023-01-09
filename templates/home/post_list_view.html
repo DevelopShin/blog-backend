@@ -19,7 +19,16 @@
             <img class="img-fluid cts-image" :src="post.image" alt="..."/>
           </a>
           <div class="blog-post-caption">
-            <div class="blog-post-caption-subheading text-primary text-uppercase my-link" @click="keywordSearch(post.category,'')">[[post.category]]</div>
+            <div>
+              <i class="fas fa-copyright"></i>
+              <span class="blog-post-caption-subheading text-primary text-uppercase my-link" @click="keywordSearch(post.category,'')">
+                [[post.category]]
+              </span>
+
+              <i class="fa-solid fa-eye ms-3"></i>
+              <span>[[post?.watch]]
+              </span>
+            </div>
             <div class="blog-post-caption-heading cts-title">[[post.title]]</div>
           </div>
         </div>

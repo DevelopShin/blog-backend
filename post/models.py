@@ -14,6 +14,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     like = models.PositiveSmallIntegerField('LIKE', default=0)
+    watch = models.PositiveSmallIntegerField('WATCH', default=0)
 
     def __str__(self):
         return self.title

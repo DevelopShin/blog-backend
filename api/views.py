@@ -35,6 +35,8 @@ class ApiPostDV(BaseDetailView):
 
     def render_to_response(self, context, **response_kwargs):
         obj = context['object']
+        obj.watch += 1
+        obj.save()
         post = obj_to_post(obj)
         prevPost, nextPost = prev_next_post(obj)
         data = {
