@@ -38,6 +38,27 @@ def obj_to_post(obj, card=False):
     return post
 
 
+def obj_to_comment(obj, card=False):
+    """
+        card=True 이면 obj에 카드에 필요한 데이터만 담아보낸다
+    """
+    comment = dict(vars(obj))
+
+    if obj.created_at:
+        comment['created_at'] = obj.created_at.strftime("%Y-%m-%d %H:%M")
+    else:
+        comment['created_at'] = "0000-00-00 00:00"
+
+    if obj.updated_at:
+        comment['updated_at'] = obj.updated_at.strftime("%Y-%m-%d %H:%M")
+    else:
+        comment['updated_at'] = "0000-00-00 00:00"
+
+    del comment['_state']
+
+    return comment
+
+
 def prev_next_post(obj):
     try:
         next = obj.get_next_by_updated_at()
@@ -59,5 +80,4 @@ def prev_next_post(obj):
 
     except obj.DoesNotExist:
         prevPost = {}
-
     return prevPost, nextPost

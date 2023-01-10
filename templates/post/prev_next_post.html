@@ -1,18 +1,18 @@
 {% load static %}
 
 <!-- Side widget-->
-<div class="card mb-4" v-if="post.nextPost?.id">
+<div class="card mb-4" v-if="nextPost?.id">
   <div class="card-header">다음 포스트</div>
-  <h5 class="my-link m-0 p-2  text-success" @click="fetchPostDetail(post.nextPost?.id)">
-    [[post.nextPost.title]]
+  <h5 class="my-link m-0 p-2  text-success" @click="fetchPostDetail(nextPost?.id)">
+    [[nextPost.title]]
   </h5>
-  <div class="card-body">[[post.nextPost.description]]</div>
+  <div class="card-body">[[nextPost.description]]</div>
 </div>
 
-<div class="card mb-4" v-if="post.prevPost?.id">
+<div class="card mb-4" v-if="prevPost?.id">
   <div class="card-header">이전 포스트</div>
-  <h5 class="m-0 p-2 my-link text-success" @click="fetchPostDetail(post.prevPost?.id)">
-    [[post.prevPost.title]]
+  <h5 class="m-0 p-2 my-link text-success" @click="fetchPostDetail(prevPost?.id)">
+    [[prevPost.title]]
   </h5>
-  <div class="card-body">[[post.prevPost.description]]</div>
+  <div class="card-body">[[prevPost.description]]</div>
 </div>

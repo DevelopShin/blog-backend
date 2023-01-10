@@ -40,8 +40,7 @@ class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, blank=True, null=True)
     content = models.TextField('CONTENT')
-    image = models.ImageField(
-        'IMAGE', upload_to='post/%Y-%m/', blank=True, null=True)
+    nickname = models.CharField('NICKNAME', max_length=20, null=True, default='hi')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

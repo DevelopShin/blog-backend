@@ -23,11 +23,10 @@ var home = new Vue({
       axios
         .get(url)
         .then((res) => {
-          console.log(res.data);
           this.postList = res.data;
         })
         .catch((err) => {
-          console.log("fetch error result: ", err.response);
+          alert("sorry!!, server error");
         });
     },
 

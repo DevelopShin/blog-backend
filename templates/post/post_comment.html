@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="card bg-light">
+  <div class="card-body">
+    <!-- Comment form-->
+    <form class="mb-4" id="comment-form" @submit.prevent="onSubmit">
+      <input type="text" id="input1" class="form-control w-25 mb-2 " placeholder="닉네임" v-model="nickname"/>
+      <textarea class="form-control" rows="3" placeholder="내용을 입력해주세요!" v-model="commentValue"></textarea>
+      <div class='d-flex justify-content-end my-2'>
+        <button class='btn btn-success' @click="onSubmitForm" :disabled="nickname.length < 2 || commentValue.length < 2">Submit</button>
+      </div>
+    </form>
+    <!-- Comment with nested comments-->
+    <div class="d-flex mb-4" v-if="comments[0].id" v-for="c in comments" :key="c.id">
+
+      <!-- Parent comment-->
+      <div class="flex-shrink-0"><img style="width:40px; height:40px;" class="rounded-circle " :src='`https://avatars.dicebear.com/api/adventurer-neutral/${c.nickname}.png`' alt="..."/></div>
+      <div class="ms-3">
+        <div>
+          <div class="fw-bold">[[c.nickname]]</div>
+          <div class="text-muted">[[c.updated_at]]</div>
+        </div>
+
+        <p>
+          [[c.content]]
+
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
