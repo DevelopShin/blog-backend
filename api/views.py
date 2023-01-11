@@ -8,10 +8,12 @@ from post.models import Post, Category, Tag, Comment
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.edit import BaseCreateView
 
+
 # Create your views here.
 
 
 class ApiPostLV(BaseListView):
+    paginate_by = 3
 
     def get_queryset(self):
         category = self.request.GET.get('category')
@@ -27,7 +29,15 @@ class ApiPostLV(BaseListView):
     def render_to_response(self, context, **response_kwargs):
         qs = context['object_list']
         postList = [obj_to_post(obj, True) for obj in qs]
-        return JsonResponse(data=postList, safe=False, status=200)
+        totalPage = context['paginator'].num_pages
+        currentPage = context['page_obj'].number
+        data = {
+            "postList": postList,
+            "totalPage": totalPage,
+            "currentPage": currentPage,
+        }
+        print(data)
+        return JsonResponse(data=data, safe=True, status=200)
 
 
 class ApiPostDV(BaseDetailView):
