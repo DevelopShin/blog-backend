@@ -1,6 +1,7 @@
 var home = new Vue({
   delimiters: ["[[", "]]"],
   el: "#page-top",
+
   data: {
     postList: [],
     tag: "",
@@ -16,6 +17,35 @@ var home = new Vue({
     this.fetchPostList();
   },
 
+  computed: {
+    pages() {
+      pages = [];
+      if (this.totalPage === 1) pages = [1];
+      else if (this.totalPage === 2) pages = [1, 2];
+      else if (this.totalPage === 3) pages = [1, 2, 3];
+      else {
+        if (this.currentPage === 1)
+          pages = [
+            this.currentPage,
+            this.currentPage + 1,
+            this.currentPage + 2,
+          ];
+        else if (this.currentPage === this.totalPage) {
+          pages = [
+            this.currentPage - 2,
+            this.currentPage - 1,
+            this.currentPage,
+          ];
+        } else
+          pages = [
+            this.currentPage - 1,
+            this.currentPage,
+            this.currentPage + 1,
+          ];
+      }
+      return pages;
+    },
+  },
   methods: {
     fetchPostList(page = 1) {
       let url = "";

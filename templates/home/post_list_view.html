@@ -43,7 +43,7 @@
           </span>
         </li>
 
-        <li v-for="current in totalPage" :class="[current==currentPage ? 'page-item active' : 'page-item']">
+        <li v-for="current in pages" :class="[current==currentPage ? 'page-item active' : 'page-item']">
           <span class="page-link" @click="pagenation(current)">[[current]]
             <span class="sr-only"></li>
 

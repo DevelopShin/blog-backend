@@ -60,6 +60,8 @@ header.masthead {
   background-attachment: fixed;
 }
 
-.page-link{
-  cursor:pointer;
+.page-link {
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 15px;
 }

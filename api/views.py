@@ -36,7 +36,6 @@ class ApiPostLV(BaseListView):
             "totalPage": totalPage,
             "currentPage": currentPage,
         }
-        print(data)
         return JsonResponse(data=data, safe=True, status=200)
 
 
